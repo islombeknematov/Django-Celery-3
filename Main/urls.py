@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from fibonacci.views import Fibonacci, FibonacciListView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('fib', Fibonacci.as_view(), name='fibonacci_list'),
+    path('', FibonacciListView.as_view(), name='fibonacci_start'),
 ]

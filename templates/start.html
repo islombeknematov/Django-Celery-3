@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{% url 'fibonacci_start' %}">See results</a>
+
+    <hr>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="fib_number"></label>
+        <input type="number" name="fib_number" id="fib_number">
+        <input type="submit" value="Submit">
+        <input type="reset">
+    </form>
+
+{% endblock %}

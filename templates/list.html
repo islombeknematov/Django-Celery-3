@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{% url 'fibonacci_list' %}">Start a new calculation</a>
+
+    <hr>
+
+    <ul>
+        {% for calc in calculation %}
+            <li>{{ calc.equation }} - Started {{ calc.created_at }}</li>
+            <ul>
+                <li>Status: {{ calc.status }}</li>
+                <li>Input: {{ calc.input }}</li>
+                <li>Output:
+                    {% if calc.output %}
+                        {{ calc.output }}
+                    {% else %}
+                        Calculating...
+                    {% endif %}
+                </li>
+            </ul>
+        {% endfor %}
+    </ul>
+{% endblock %}
